@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华师学生联盟 - 官方网站</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <style>
+        body { 
+            font-family: 'Microsoft YaHei', sans-serif; 
+            background-color: #f8f9fa;
+        }
+        .navbar-brand { 
+            font-weight: bold; 
+            font-size: 1.5rem; 
+        }
+        .hero { 
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white; 
+            padding: 100px 0;
+        }
+        .section-title { 
+            border-bottom: 4px solid #007bff; 
+            padding-bottom: 10px; 
+            display: inline-block;
+            font-weight: bold;
+        }
+        .btn-primary { background-color: #007bff; border-color: #007bff; }
+        .btn-success { background-color: #28a745; border-color: #28a745; }
+        section.py-5 { padding: 80px 0; }
+        footer { background-color: #343a40; }
+
+        /* 贪吃蛇游戏样式 */
+        #game-container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #snake-canvas {
+            border: 4px solid #007bff;
+            border-radius: 10px;
+            background-color: #000;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        #score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #007bff;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .controls button {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+            margin: 5px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">华师学生联盟</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">关于我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#activities">活动</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#join">加入我们</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#message">留言板</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#game">小游戏</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">联系我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区（首页） -->
+    <section id="home" class="hero text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">欢迎来到华师学生联盟</h1>
+            <p class="lead mt-3">团结清丰高中学子，共建丰富校园生活</p>
+            <a href="#join" class="btn btn-light btn-lg mt-4 px-5 py-3 shadow">立即注册加入</a>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="bg-white">
+        <div class="container">
+            <h2 class="section-title text-primary mb-4">关于我们</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <p class="lead">华师学生联盟是华中师范大学附属清丰高级中学学生自发组织的非盈利性社团联盟。我们致力于连接校内各班级、社团，促进校园文化交流、学习互助和社会实践。</p>
+                    <p class="mt-4"><strong>建立目标：</strong></p>
+                    <ul class="list-unstyled ms-4">
+                        <li class="mb-2">✔ 增强学生自治能力，培养领导力和团队协作精神；</li>
+                        <li class="mb-2">✔ 丰富校园课余生活，组织有益身心健康的活动；</li>
+                        <li class="mb-2">✔ 搭建学生与学校、老师沟通的桥梁，反映同学心声；</li>
+                        <li class="mb-2">✔ 促进学风建设，助力每位同学全面发展与高考备战；</li>
+                        <li class="mb-2">✔ 传承学校优秀传统文化，服务清丰高中长远发展。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活动展示 -->
+    <section id="activities" class="bg-light">
+        <div class="container">
+            <h2 class="section-title text-primary mb-4">近期活动</h2>
+        <div class="text-center py-5">
+            <p class="lead text-muted">目前暂无近期活动</p>
+            <p class="text-secondary">联盟正在筹备中，敬请期待！关注我们获取最新动态。</p>
+        </div>
+    </div>
+    </section>
+
+    <!-- 加入我们 -->
+    <section id="join" class="bg-white">
+        <div class="container">
+            <h2 class="section-title text-primary mb-4">加入我们</h2>
+            <p class="text-center mb-5 lead">填写注册信息，成为联盟成员！我们使用腾讯问卷平台收集信息，安全便捷。</p>
+            <div class="text-center">
+                <a href="https://wj.qq.com/s2/25407473/a844/" target="_blank" class="btn btn-primary btn-lg px-5 py-3 shadow">
+                    点击这里填写注册表单
+                </a>
+            </div>
+            <p class="text-center mt-4 text-muted">注册信息仅用于联盟内部管理，严格保密。</p>
+        </div>
+    </section>
+
+    <!-- 留言板 -->
+    <section id="message" class="bg-light">
+        <div class="container">
+            <h2 class="section-title text-primary mb-4">留言板</h2>
+            <p class="text-center mb-5 lead">欢迎留下你的建议、意见或想对联盟说的话！我们会认真阅读每一条留言。</p>
+            <div class="text-center">
+                <a href="https://wj.qq.com/s2/25407682/79a8/" target="_blank" class="btn btn-success btn-lg px-5 py-3 shadow">
+                    点击这里提交留言
+                </a>
+            </div>
+            <p class="text-center mt-4 text-muted">所有留言仅管理员可见，我们会定期整理优秀建议。</p>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="bg-white">
+        <div class="container">
+            <h2 class="section-title text-primary mb-4">联系我们</h2>
+            <div class="text-center lead">
+                <p>邮箱：459761750@qq.com 或 Sheeper1966@gmail.com</p>
+                <p class="mt-3">地址：河南省濮阳市清丰县 华中师范大学附属清丰高级中学</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 小游戏区（放在页面最后） -->
+    <section id="game" class="bg-light">
+        <div class="container">
+            <h2 class="section-title text-primary mb-5 text-center">休闲小游戏：贪吃蛇</h2>
+            <div id="game-container">
+                <canvas id="snake-canvas" width="400" height="400"></canvas>
+                <div id="score">得分：0</div>
+                <div class="controls d-none" id="mobile-controls">
+                    <div><button onclick="changeDirection('UP')">↑</button></div>
+                    <div>
+                        <button onclick="changeDirection('LEFT')">←</button>
+                        <button onclick="changeDirection('DOWN')">↓</button>
+                        <button onclick="changeDirection('RIGHT')">→</button>
+                    </div>
+                </div>
+                <p class="mt-3 text-muted">使用键盘方向键控制 ↑↓←→<br>吃到食物得分，避免撞墙或撞到自己！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="text-white py-5 text-center">
+        <p class="mb-0">&copy; 2026 华师学生联盟 | 所有权利保留</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 贪吃蛇游戏脚本 -->
+    <script>
+        const canvas = document.getElementById('snake-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('score');
+        const mobileControls = document.getElementById('mobile-controls');
+
+        const gridSize = 20;
+        const tileCount = canvas.width / gridSize;
+
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: 15, y: 15 };
+        let dx = 0;
+        let dy = 0;
+        let score = 0;
+        let gameLoop;
+
+        // 检测是否为移动设备
+        if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+            mobileControls.classList.remove('d-none');
+        }
+
+        function draw() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            snake.forEach((segment, index) => {
+                ctx.fillStyle = index === 0 ? '#00ff00' : '#90ee90';
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+            });
+
+            ctx.fillStyle = 'red';
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+        }
+
+        function update() {
+            if (dx === 0 && dy === 0) return;
+
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+            if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+                gameOver();
+                return;
+            }
+
+            if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                gameOver();
+                return;
+            }
+
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                scoreElement.textContent = `得分：${score}`;
+                generateFood();
+            } else {
+                snake.pop();
+            }
+
+            draw();
+        }
+
+        function generateFood() {
+            food = {
+                x: Math.floor(Math.random() * tileCount),
+                y: Math.floor(Math.random() * tileCount)
+            };
+            if (snake.some(segment => segment.x === food.x && segment.y === food.y)) {
+                generateFood();
+            }
+        }
+
+        function changeDirection(direction) {
+            if (direction === 'UP' && dy !== 1) { dx = 0; dy = -1; }
+            if (direction === 'DOWN' && dy !== -1) { dx = 0; dy = 1; }
+            if (direction === 'LEFT' && dx !== 1) { dx = -1; dy = 0; }
+            if (direction === 'RIGHT' && dx !== -1) { dx = 1; dy = 0; }
+        }
+
+        function gameOver() {
+            clearInterval(gameLoop);
+            alert(`游戏结束！你的得分：${score}\n再来一局？`);
+            resetGame();
+        }
+
+        function resetGame() {
+            snake = [{ x: 10, y: 10 }];
+            food = { x: 15, y: 15 };
+            dx = 0;
+            dy = 0;
+            score = 0;
+            scoreElement.textContent = '得分：0';
+            draw();
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowUp') changeDirection('UP');
+            if (e.key === 'ArrowDown') changeDirection('DOWN');
+            if (e.key === 'ArrowLeft') changeDirection('LEFT');
+            if (e.key === 'ArrowRight') changeDirection('RIGHT');
+        });
+
+        draw();
+        gameLoop = setInterval(update, 100);
+    </script>
+
+</body>
+  </html>
